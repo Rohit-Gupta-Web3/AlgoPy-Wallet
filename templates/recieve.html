@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block tab %}{% endblock tab %}
+{% block main %}
+<style>
+  h1{
+    font-size:2rem; 
+    font-weight:400;
+  }
+  span{
+    font-weight:600; 
+    font-size:27px;
+    color:green;
+   
+  }
+  
+</style>
+<script>
+  function copyFun(){
+    var address=document.getElementById('clip').innerHTML;
+    navigator.clipboard.writeText(address);
+    alert("Your address is copied to your clipboard.");
+
+}
+
+</script>
+
+<br>
+<h1 style="overflow: hidden; text-overflow: ellipsis;" >
+ Account Address: <span id="clip"> {{address}}</span></h1>
+<br>
+<button onclick="copyFun()" class="btn">Copy Address to Clipboard</button>
+<br><br>
+{{ svg|safe }}
+{% endblock main %} 

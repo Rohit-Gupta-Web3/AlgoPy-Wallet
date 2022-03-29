@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% block content %}{% endblock content %}
+
+{% comment %} {% for i in divyansh %} {% endcomment %}
+
+{% comment %} <tr>
+  <td>1</td>
+  <td>LAJFNAJFSKACQAOCVN</td>
+  <td>SENT</td>
+  <td>12334</td>
+  <td>ASNAFSKNAMCQACKIASL</td>
+  <td>QAWFQVEFGVWEGWEGWEK</td>
+  <td>1000</td>
+  <td><a target="_blank" href="https://www.google.com/"> <i class="fa fa-upload"></i> </a></td>
+</tr> 
+
+<tr>
+  <td>2</td>
+  <td>LAJFNAJFSKACQAOCVN</td>
+  <td>SENT</td>
+  <td>12334</td>
+  <td>ASNAFSKNAMCQACKIASL</td>
+  <td>QAWFQVEFGVWEGWEGWEK</td>
+  <td>1000</td>
+  <td><a target="_blank" href="https://www.google.com/"> <i class="fa fa-upload"></i> </a></td>
+
+
+</tr> 
+<tr>
+  <td>3</td>
+  <td>LAJFNAJFSKACQAOCVN</td>
+  <td>SENT</td>
+  <td>12334</td>
+  <td>ASNAFSKNAMCQACKIASL</td>
+  <td>QAWFQVEFGVWEGWEGWEK</td>
+  <td>1000</td>
+  <td><a target="_blank" href="https://www.google.com/"> <i class="fa fa-upload"></i> </a></td>
+
+
+</tr> 
+<tr>
+  <td>4</td>
+  <td>LAJFNAJFSKACQAOCVN</td>
+  <td>SENT</td>
+  <td>12334</td>
+  <td>ASNAFSKNAMCQACKIASL</td>
+  <td>QAWFQVEFGVWEGWEGWEK</td>
+  <td>1000</td>
+  <td><a target="_blank" href="https://www.google.com/"> <i class="fa fa-upload"></i> </a></td>
+
+</tr> 
+<tr>
+  <td>5</td>
+  <td>LAJFNAJFSKACQAOCVN</td>
+  <td>SENT</td>
+  <td>12334</td>
+  <td>ASNAFSKNAMCQACKIASL</td>
+  <td>QAWFQVEFGVWEGWEGWEK</td>
+  <td>1000</td>
+  <td><a target="_blank" href="https://www.google.com/"> <i class="fa fa-upload"></i> </a></td>
+
+</tr> 
+<tr>
+  <td>6</td>
+  <td>LAJFNAJFSKACQAOCVN</td>
+  <td>SENT</td>
+  <td>12334</td>
+  <td>ASNAFSKNAMCQACKIASL</td>
+  <td>QAWFQVEFGVWEGWEGWEK</td>
+  <td>1000</td>
+  <td><a target="_blank" href="https://www.google.com/"> <i class="fa fa-upload"></i> </a></td>
+
+</tr> 
+<tr>
+  <td>7</td>
+  <td>LAJFNAJFSKACQAOCVN</td>
+  <td>SENT</td>
+  <td>12334</td>
+  <td>ASNAFSKNAMCQACKIASL</td>
+  <td>QAWFQVEFGVWEGWEGWEK</td>
+  <td>1000</td>
+  <td><a target="_blank" href="https://www.google.com/"> <i class="fa fa-upload"></i> </a></td>
+
+</tr> 
+<tr>
+  <td>8</td>
+  <td>LAJFNAJFSKACQAOCVN</td>
+  <td>SENT</td>
+  <td>12334</td>
+  <td>ASNAFSKNAMCQACKIASL</td>
+  <td>QAWFQVEFGVWEGWEGWEK</td>
+  <td>1000</td>
+  <td><a target="_blank" href="https://www.google.com/"> <i class="fa fa-upload"></i> </a></td>
+
+</tr> 
+ {% endcomment %}
+
+
+
+ {% block trow %}
+
+
+
+ {% for i in divyansh %}
+ <tr>
+   <td >{{i.sno}}</td>
+   <td style="max-width: 6cm;overflow: hidden; text-overflow: ellipsis;">{{i.id}}</td>
+   <td>{{i.tnxtype}}</td>
+   <td>{{i.amount}}</td>
+   <td style="max-width: 6cm;overflow: hidden; text-overflow: ellipsis;">{{i.receiver}}</td>
+   <td style="max-width: 6cm;overflow: hidden; text-overflow: ellipsis;">{{i.sender}}</td>
+   <td>{{i.fee}}</td>
+ </tr> 
+ {% endfor %}
+{% endblock trow %}
+    
+    {% comment %} {% endfor %} {% endcomment %}

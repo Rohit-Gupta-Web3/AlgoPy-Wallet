@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block navbar %}{% endblock navbar %}
+{% block tab %}{% endblock tab %}
+{% block style %}
+input{
+  color:black;
+  text-align: center;
+  border-radius: 30px;
+  border: 2px solid lightgreen;
+  margin:20px;
+  }
+{% endblock style %}
+{% block main %}<br>
+<h2 style="line-height:1.2;">
+    We're glad that you're already a memeber of AlgoPy, <br> Please provide us your login credentials below:
+  </h2>
+  <form action="" method="post">
+    {% csrf_token %}
+    <input autocomplete="off"  type="text" name="AccName" placeholder="Account Name"></input><br>
+    <input autocomplete="off"  type="password" name="AccPwd" placeholder="Password"></input><br>
+    <button type="submit" class="btn">Gain Access</button>
+  </form>
+{% endblock main %}

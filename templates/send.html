@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block tab %}{% endblock tab %}
+{% block main %}
+<style>
+  h1{
+    font-size:2rem; 
+    font-weight:400;
+  }
+  span{
+    font-weight:600; 
+    font-size:3rem;
+    color:green;
+    text-decoration:underline;
+  }
+  input{
+   color:black;
+   text-align: center;
+   border-radius: 30px;
+   border: 2px solid lightgreen;
+   margin:20px;
+   width:20vw;
+   min-width:6cm;
+
+   }
+   textarea{
+    color:black;
+    border-radius: 20px;
+    border: 2px solid lightgreen;
+    margin:20px;
+    width:20vw;
+    min-width:6cm;
+   }
+   #main{
+     height:80vh;
+     overflow:scroll;
+   }
+   ::-webkit-scrollbar {
+    display:none;
+}
+</style>
+<br><br><br><br><br><br><br>
+<h1 style="font-size:28px; font-weight:400;">
+Provide us the the requierd details and we'll do it for you.
+</h1>
+
+<h1 >
+  Account Balance: <br>
+  <span > {{bal}}</span> 
+</h1>
+<form action=""method="post">
+  {% csrf_token %}
+<input autocomplete="off"  type="text" name="Reciever" placeholder="Reciever's Account Address"></input><br>
+<input autocomplete="off"  type="number" name="amount" placeholder="Amount of ALGO(s) to be sent"></input><br>
+{% comment %} <input type="textarea rows="5" cols="5"" name="Passphrase" placeholder="Your Passphrase"></input><br> {% endcomment %}
+​<textarea id="txtArea" rows="5" cols="5" name="Passphrase" placeholder="Your Passphrase"></textarea><br>
+<button class="btn">Send ALGOs</button>
+</form>
+{% endblock main %}

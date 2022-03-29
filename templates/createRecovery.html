@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block navbar %}{% endblock navbar %}
+{% block tab %}{% endblock tab %}
+
+{% block style %}
+input{
+  color:black;
+  text-align: center;
+  border-radius: 30px;
+  border: 2px solid lightgreen;
+  margin:20px;
+  }
+{% endblock style %}
+{% block main %}<br><br>
+
+<h2 style="line-height:1.2;">
+Great, your has been successfully recovered now you have to give us just 3 more things to get done:  </h2> <br>
+  <form action="" method="post">
+    {% csrf_token %}
+      <input autocomplete="off" type="text" name="AccName" placeholder="Account Name"></input>
+      <input autocomplete="off"  type="email" name="mail" placeholder="E-mail"></input><br>
+      <input type="password" name="AccPwd" placeholder="Password"></input><br>
+      <button type="submit" class="btn">Create Account</button>
+    </form>
+{% endblock main %}

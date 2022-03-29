@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block navbar %}{% endblock navbar %}
+{% block tab %}{% endblock tab %}
+
+{% block main %}
+<br><br>
+<h1 style="color:black;">
+    Welcome to Algopy, <br> Please choose what suits you best
+</h1>
+    <a href="/AddAccount">
+        <button class="btn">Recover your account with Passphrase</button>
+	</a><br>OR<br>
+	<a href="/CreateAccount">
+        <button class="btn">Create an account and get a new Passphrase</button>
+	</a><br>OR<br>
+	<a href="/signin">        
+	<button class="btn">Login to your account using password</button>
+	</a>	
+{% endblock main %}

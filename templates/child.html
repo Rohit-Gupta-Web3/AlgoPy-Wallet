@@ -1,0 +1,27 @@
+{% extends 'parent.html' %}
+
+{% block h1 %}
+I AM A HEADING 1
+{% endblock h1 %}
+
+      
+
+{% block a %}
+{% for x,i in links.items  %}
+<a href={{i}}>{{x}}</a> <br><br><br>
+{% endfor %}
+{% endblock a %}
+
+{% comment %} {% block new %}
+{% for c,b in content.items %}
+<input type="text" name={{b}} placeholder={{c}}></input>
+{% endfor %}
+{% endblock new %} {% endcomment %}
+
+
+
+{% block new %}
+{% for key, value in dict.items %}
+    <p>Grade for {{key}}: {{value.new}}. </p>
+    {% endfor %}
+{% endblock new %}
