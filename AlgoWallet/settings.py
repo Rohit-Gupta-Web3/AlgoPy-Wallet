@@ -53,8 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'walletAlgo.apps.WalletalgoConfig',
-    'channels'
+    'walletAlgo.apps.WalletalgoConfig'
 ]
 
 MIDDLEWARE = [
