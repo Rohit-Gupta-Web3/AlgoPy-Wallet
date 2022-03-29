@@ -185,13 +185,13 @@
       </div>
     </section>
     {% endblock tab %}
-    {% if messages %}
+    {% comment %} {% if messages %}
     <ul class="messages">
         {% for message in messages %}
         <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
         {% endfor %}
     </ul>
-    {% endif %}
+    {% endif %} {% endcomment %}
       <div id="footer">Copyright &copy; All Rights Reserved by AlgoPy.com</div>
     </div>
     <!-- Scripts -->

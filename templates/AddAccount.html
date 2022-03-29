@@ -21,9 +21,9 @@ input{
     }
 {% endblock style %}
 {% block main %}
-<br> <br> <br> <br><br><br><br><br><br>
+<br> <br> <br> <br><br>
 <h3 style="line-height:1; letter-spacing:1px;">
-    Here you have to enter your full length passphrase for your ALGORAND account,  Please make sure you dont enter any spaces with the words:
+    Here you have to enter your full length passphrase of your ALGORAND account.<br> Please make sure you don't enter any spaces with the words.
   </h3> <br>
 <form action="" method="post">
   {% csrf_token %}
@@ -47,7 +47,7 @@ input{
   {% for i,x in Words5.items%}
   <input type="text" name={{i}} placeholder={{x}}></input>
   {% endfor %}
-  <br>  <br>  <br> 
+  <br>  <br>  
   <a href="{% url 'createRecovery' %}">
     <button type="submit" class="btn">Verify Passphrase</button>
   </a>

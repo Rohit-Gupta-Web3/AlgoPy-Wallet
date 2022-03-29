@@ -17,8 +17,9 @@
 {% endblock style %}
 <script>
   function hello(){
-    
-    alert("hello");
+    var address=document.getElementById('clip').innerHTML;
+    navigator.clipboard.writeText(address);
+    alert("Your address is copied to your clipboard.");
   }
   {% block main %}
   {% comment %} </script>
@@ -32,9 +33,9 @@
 <h1 >
   Your Account Address is <span> {{add}}</span></h1>
 <br>
+{% comment %} <button onclick="hello()" class="btn">Copy Address to Clipboard</button> {% endcomment %}
 <form action="/sendmail" method="POST">
   {% csrf_token %}
-<button onclick="hello()" class="btn">Copy Address to Clipboard</button>
   <a href="{% url 'sendmail' %}">
 <button type="submit" class="btn">Send Account details to my mail</button>
   </a>
