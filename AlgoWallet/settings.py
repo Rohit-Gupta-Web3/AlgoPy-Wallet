@@ -34,7 +34,7 @@ SECRET_KEY = 'django-insecure-w_q^n(ro921fd46+!oh8o%xt&zqya!72jo)bae5lo@%#mj1v=o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['algo-py-wallet.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['algopy-wallet.herokuapp.com','127.0.0.1']
 
 
 #Sending mail
