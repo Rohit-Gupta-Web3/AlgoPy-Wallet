@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 {% block navbar %}{% endblock navbar %}
 {% block tab %}{% endblock tab %}
+{% block icon %}
+<a href="/">       
+<i style="top:1cm;" id="icon" class="fas fa-2x fas fas fas fa-arrow-circle-left"></i>
+</a>
+{% endblock icon %}
+
 {% block style %}
 input{
   color:black;
@@ -9,7 +15,9 @@ input{
   border: 2px solid lightgreen;
   margin:20px;
   }
+  
 {% endblock style %}
+
 {% block main %}<br>
 <h2 style="line-height:1.2;"><br>
     We're glad that you're already a memeber of AlgoPy <br> Please provide us your login credentials below.
@@ -18,6 +26,7 @@ input{
     {% csrf_token %}
     <input autocomplete="off"  type="text" name="AccName" placeholder="Account Name"></input><br>
     <input autocomplete="off"  type="password" name="AccPwd" placeholder="Password"></input><br>
+    {% comment %} <button  class="btn"><a href="/">Back to Options</a></button> {% endcomment %}
     <button type="submit" class="btn">Gain Access</button>
   </form>
 {% endblock main %}

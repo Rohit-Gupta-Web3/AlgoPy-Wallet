@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
 {% block tab %}{% endblock tab %}
-{% block style %}
+{% block icon %}{% endblock icon %}
 
-
+<br>
+{% block main %}
+<style>
   h1{
     font-size:2rem; 
     font-weight:400;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   span{
     font-weight:600; 
@@ -14,26 +18,23 @@
     text-decoration:underline;
   }
 
-{% endblock style %}
+</style>
 <script>
-  function hello(){
+  function copyFun(){
     var address=document.getElementById('clip').innerHTML;
     navigator.clipboard.writeText(address);
     alert("Your address is copied to your clipboard.");
-  }
-  {% block main %}
-  {% comment %} </script>
-  <br>
-  <h1 style="font-size:2.5em; font-weight:800;">
-    Hey {{name}},
-  </h1> {% endcomment %}
-  <h1 >
+
+}
+</script>
+<br><br>
+<h1 >
   Your Account Balance is <span > <br> {{bal}}</span> 
 </h1>
 <h1 >
-  Your Account Address is <span> {{add}}</span></h1>
+  Your Account Address is <span id="clip">{{add}}</span></h1>
 <br>
-{% comment %} <button onclick="hello()" class="btn">Copy Address to Clipboard</button> {% endcomment %}
+<button onclick="copyFun()" class="btn">Copy Address to Clipboard</button> <br><br>
 <form action="/sendmail" method="POST">
   {% csrf_token %}
   <a href="{% url 'sendmail' %}">

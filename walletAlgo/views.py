@@ -155,6 +155,13 @@ def dashboard(request):
 
 @login_required(login_url="signin")    
 def SendAlgo(request):
+    add=str(request.user.Address)
+    algod_token = '4xcfeVtFO21zGa5oJr3us3bpzXACJjQg5oPUdTtv '
+    algod_address = 'https://testnet-algorand.api.purestake.io/ps2'
+    purestake_token = {'X-Api-key': algod_token}
+    algodclient = algod.AlgodClient(algod_token, algod_address, headers=purestake_token)
+    account_info = algodclient.account_info(add)  
+    balance=("{} microAlgos".format(account_info.get('amount')) + "\n")
     if request.method=="POST":
         sendadd = request.POST.get('Reciever')
         amt = int(request.POST.get('amount'))
@@ -198,7 +205,7 @@ def SendAlgo(request):
         wait_for_confirmation(algodclient, txid=signed_tx.transaction.get_txid())
         account_info = algodclient.account_info(account_public_key)  
         print("Final Account balance: {} microAlgos".format(account_info.get('amount')) + "\n")
-    return render(request, "send.html")
+    return render(request, "send.html",{'balance':balance})
 
 @login_required(login_url="signin")
 def RecieveAlgo(request):

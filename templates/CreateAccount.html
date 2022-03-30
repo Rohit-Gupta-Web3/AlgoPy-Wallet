@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 {% block navbar %}{% endblock navbar %}
 {% block tab %}{% endblock tab %}
+{% block icon %}
+<a href="/">       
+<i id="icon" class="fas fa-3x fas fas fas fa-arrow-circle-left"></i>
+</a>
+{% endblock icon %}
 
 {% block style %}
 input{
@@ -10,19 +15,30 @@ input{
   border: 2px solid lightgreen;
   margin:10px;
   }
+
+
+
   #main{
-    height:60vh;
+    height:80vh;
+    overflow:scroll;
   }
+
+  ::-webkit-scrollbar {
+    display:none;
+}
 {% endblock style %}
-{% block main %}<br><br>
+{% block main %}<br><br><br> <br> 
 <h2 style="line-height:1;"> <br>
   Thanks for choosing your further digital currency journey with us. Just add a  name & powerful password for your account, and you are good to go.
-</h2> <br>
+</h2> 
 <form action=""method="post">
   {% csrf_token %}
   <input autocomplete="off"  type="text" name="AccName" placeholder="Account Name"></input>
   <input autocomplete="off"  type="email" name="mail" placeholder="E-mail"></input><br>
-  <input autocomplete="off"  type="password" name="AccPwd" placeholder="Password"></input><br>
-  <button autocomplete="off"  type="submit" class="btn">Create Account</button>
+  <input autocomplete="off"  type="password" name="AccPwd" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"></input> <br>
+  <span style="font-size:smaller;"> Password must contain at least one number, one uppercase letter, one lowercase letter, and at least 8 or more characters</span>
+  <br><br>
+  <button autocomplete="off"  type="submit" class="btn">Create Account</button><br><br>
+  {% comment %} <button  class="btn"><a href="/">Back to Options</a></button>  {% endcomment %}
 </form>
 {% endblock main %}

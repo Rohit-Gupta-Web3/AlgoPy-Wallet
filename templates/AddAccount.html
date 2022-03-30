@@ -2,6 +2,11 @@
 {% comment %} {% load static %} {% endcomment %}
 {% block navbar %}{% endblock navbar %}
 {% block tab %}{% endblock tab %}
+{% block icon %}
+<a href="/">       
+<i id="icon" class="fas fa-3x fas fas fas fa-arrow-circle-left"></i>
+</a>
+{% endblock icon %}
 {% block style %}
 input{
   color:black;
@@ -21,7 +26,7 @@ input{
     }
 {% endblock style %}
 {% block main %}
-<br> <br> <br> <br><br>
+<br> <br> <br> <br> <br> <br> <br> 
 <h3 style="line-height:1; letter-spacing:1px;">
     Here you have to enter your full length passphrase of your ALGORAND account.<br> Please make sure you don't enter any spaces with the words.
   </h3> <br>

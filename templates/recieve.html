@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 {% block tab %}{% endblock tab %}
+{% block icon %}
+<a href="/dashboard">       
+<i id="icon" class="fas fa-3x fas fas fas fa-arrow-circle-left"></i>
+</a>
+{% endblock icon %}
 {% block main %}
 <style>
   h1{
@@ -21,9 +26,7 @@
     alert("Your address is copied to your clipboard.");
 
 }
-
 </script>
-
 <br>
 <h1 style="overflow: hidden; text-overflow: ellipsis;" >
  Account Address: <span id="clip">{{address}}</span></h1>
