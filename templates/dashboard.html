@@ -2,7 +2,7 @@
 {% block title %}AlgoPy | Dashboard{% endblock title %}
 
 {% block tab %}{% endblock tab %}
-{% block icon %}{% endblock icon %}
+
 
 <br>
 {% block main %}
@@ -19,7 +19,16 @@
     color:green;
     text-decoration:underline;
   }
+  @media screen and (max-width: 768px) {
+    #icon{
+      position:initial;
+      left:2cm;
+      top:2cm;
+      color:#25c481;
+      z-index:10;
 
+    }
+  }
 </style>
 <script>
   function copyFun(){
@@ -43,4 +52,10 @@
 <button type="submit" class="btn">Send Account details to my mail</button>
   </a>
 </form>
+{% block icon %}
+<a target="_blank" href="https://dispenser.testnet.aws.algodev.network/" style="position:absolute;"> 
+  <i style="top:3cm;left:0cm;" id="icon" class="fas fa-2x fas fas fas fa-fas fa-coins">ADD FUNDS</i>
+  {% comment %} <i style="top:3cm;color:white;left:1.2cm;" id="icon" class="fas fas fas fas fa-far fa-fas fa-plus"></i>   {% endcomment %}
+</a>
+{% endblock icon %}
 {% endblock main %}
