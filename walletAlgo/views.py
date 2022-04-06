@@ -141,7 +141,7 @@ def dashboard(request):
     add=str(request.user.Address)
     name=str(request.user.username)
     algod_token = '4xcfeVtFO21zGa5oJr3us3bpzXACJjQg5oPUdTtv '
-    algod_address = 'https://testnet-algorand.api.purestake.io/ps2'
+    algod_address = 'https://mainnet-algorand.api.purestake.io/ps2'
     purestake_token = {'X-Api-key': algod_token}
     algodclient = algod.AlgodClient(algod_token, algod_address, headers=purestake_token)
     account_info = algodclient.account_info(add)
@@ -157,7 +157,7 @@ def dashboard(request):
 def SendAlgo(request):
     add=str(request.user.Address)
     algod_token = '4xcfeVtFO21zGa5oJr3us3bpzXACJjQg5oPUdTtv '
-    algod_address = 'https://testnet-algorand.api.purestake.io/ps2'
+    algod_address = 'https://mainnet-algorand.api.purestake.io/ps2'
     purestake_token = {'X-Api-key': algod_token}
     algodclient = algod.AlgodClient(algod_token, algod_address, headers=purestake_token)
     account_info = algodclient.account_info(add)  
@@ -168,7 +168,7 @@ def SendAlgo(request):
         passphrase = request.POST.get('Passphrase')
         print(sendadd,amt,passphrase)
         algod_token = '4xcfeVtFO21zGa5oJr3us3bpzXACJjQg5oPUdTtv '
-        algod_address = 'https://testnet-algorand.api.purestake.io/ps2'
+        algod_address = 'https://mainnet-algorand.api.purestake.io/ps2'
         purestake_token = {'X-Api-key': algod_token}
   
         #waiting for confirmation
@@ -213,7 +213,7 @@ def RecieveAlgo(request):
     name=str(request.user.username)
 
     algod_token = '4xcfeVtFO21zGa5oJr3us3bpzXACJjQg5oPUdTtv '
-    algod_address = 'https://testnet-algorand.api.purestake.io/ps2'
+    algod_address = 'https://mainnet-algorand.api.purestake.io/ps2'
     purestake_token = {'X-Api-key': algod_token}
     algodclient = algod.AlgodClient(algod_token, algod_address, headers=purestake_token)
     account_info = algodclient.account_info(add)
@@ -232,7 +232,7 @@ def RecieveAlgo(request):
 def History(request):
     owner=str(request.user.Address)
     algod_token = '4xcfeVtFO21zGa5oJr3us3bpzXACJjQg5oPUdTtv'
-    algod_address = 'https://testnet-algorand.api.purestake.io/idx2'
+    algod_address = 'https://mainnet-algorand.api.purestake.io/idx2'
     purestake_token = {'X-API-Key': algod_token}
     acl = indexer.IndexerClient(algod_token, algod_address,headers=purestake_token)
     response = acl.search_transactions(address=owner)
@@ -287,7 +287,7 @@ def sendmail(request):
         pas=str(request.user.passfrase)
         email=str(request.user.email)
         algod_token = '4xcfeVtFO21zGa5oJr3us3bpzXACJjQg5oPUdTtv '
-        algod_address = 'https://testnet-algorand.api.purestake.io/ps2'
+        algod_address = 'https://mainnet-algorand.api.purestake.io/ps2'
         purestake_token = {'X-Api-key': algod_token}
         algodclient = algod.AlgodClient(algod_token, algod_address, headers=purestake_token)
         account_info = algodclient.account_info(add)
