@@ -228,6 +228,7 @@ def RecieveAlgo(request):
     context["svg"] = stream.getvalue().decode()
     
     return render(request, "recieve.html",context=context)
+    
 @login_required(login_url="signin")
 def History(request):
     owner=str(request.user.Address)
