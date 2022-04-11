@@ -145,9 +145,12 @@ def dashboard(request):
     purestake_token = {'X-Api-key': algod_token}
     algodclient = algod.AlgodClient(algod_token, algod_address, headers=purestake_token)
     account_info = algodclient.account_info(add)
-    bal = "{} microAlgos".format(account_info.get('amount'))
+    
+    bal = format(account_info.get('amount'))
+    bala=int(bal)
+    tot=bala/1000000
     balance = {
-        "bal" : bal,
+        "bal" : tot,
         "add" : add,
         "name":name
     }
@@ -292,9 +295,11 @@ def sendmail(request):
         purestake_token = {'X-Api-key': algod_token}
         algodclient = algod.AlgodClient(algod_token, algod_address, headers=purestake_token)
         account_info = algodclient.account_info(add)
-        bal = "{} microAlgos".format(account_info.get('amount'))
+        bal = format(account_info.get('amount'))
+        bala=int(bal)
+        tot=bala/1000000
         balance = {
-            "bal" : bal,
+            "bal" : tot,
             "add" : add,
             "name":name
         }
