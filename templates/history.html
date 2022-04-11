@@ -1,19 +1,36 @@
 {% extends 'base.html' %}
 {% block title %}AlgoPy | Transactions' History{% endblock title %}
-<script>
+{% block js %}
   function search(){
-    onkeyup="myFunction()"
+    var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("input");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("Table");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
   }
-</script>
+  }
+  {% endblock js %}
 
 {% block icon %}
 <a href="/dashboard">       
 <i id="icon" style="top:1.8em; " class="fas fa-2x fas fas fas fa-arrow-circle-left"></i>
 </a>
 {% endblock icon %}
+
 {% block content %}
-<input style="position: fixed; top: 3cm;left: 4cm; border: none; border-radius: 20px; text-align: center;" type="text" placeholder="Search a Txn"></input> 
+<input id="input" onkeyup="search()" style="position: fixed; top: 3cm;left: 4cm; border: none; border-radius: 20px; text-align: center;" type="text" placeholder="Search a Txn"></input> 
 {% endblock content %}
+
 <br><br><br>
  {% block trow %}
 
@@ -22,7 +39,7 @@
  {% for i in divyansh %}
  <tr>
    <td >{{i.sno}}</td>
-   <td style="max-width: 6cm;overflow: hidden; text-overflow: ellipsis;">{{i.id}}</td>
+   <td id="txnID" style="max-width: 6cm;overflow: hidden; text-overflow: ellipsis;">{{i.id}}</td>
    <td>{{i.tnxtype}}</td>
    <td>{{i.amount}}</td>
    <td style="max-width: 6cm;overflow: hidden; text-overflow: ellipsis;">{{i.sender}}</td>
