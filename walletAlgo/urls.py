@@ -13,5 +13,5 @@ urlpatterns = [
       path("RecieveAlgo",views.RecieveAlgo, name='RecieveAlgo'),
       path("History",views.History, name='History'),
       path("logoutpage/",views.logoutpage,name="logout"),
-      path("sendmail",views.sendmail,name="sendmail"),
+      path("sendmail",views.sendmail,name="sendmail"),     
 ]
