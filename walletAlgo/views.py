@@ -164,73 +164,76 @@ def dashboard(request):
 
 @login_required(login_url="signin")    
 def SendAlgo(request):
-    tes=signin.test
-    add=str(request.user.Address)
-    passphrase=str(request.user.passfrase)
-    algod_token = '4xcfeVtFO21zGa5oJr3us3bpzXACJjQg5oPUdTtv '
-    algod_address = 'https://testnet-algorand.api.purestake.io/ps2'
-    purestake_token = {'X-Api-key': algod_token}
-    algodclient = algod.AlgodClient(algod_token, algod_address, headers=purestake_token)
-    account_info = algodclient.account_info(add)  
-    balance="{} microAlgos".format(account_info.get('amount'))
-    # bal=int(balance)
-    if request.method=="POST":
-        sendadd = request.POST.get('Reciever')
-        amt = int(request.POST.get('amount'))
-        password = request.POST.get('AccPwd')
-        if(password==tes):
-            print(sendadd,amt,passphrase)
-            algod_token = '4xcfeVtFO21zGa5oJr3us3bpzXACJjQg5oPUdTtv '
-            algod_address = 'https://testnet-algorand.api.purestake.io/ps2'
-            purestake_token = {'X-Api-key': algod_token}
-      
-            #waiting for confirmation
-            def wait_for_confirmation(client, txid):
-                last_round = client.status().get('last-round')
-                txinfo = client.pending_transaction_info(txid)
-                while not (txinfo.get('confirmed-round') and txinfo.get('confirmed-round') > 0):
-                    print('Waiting for confirmation')
-                    last_round += 1
-                    client.status_after_block(last_round)
+    try:
+        tes=signin.test
+        add=str(request.user.Address)
+        passphrase=str(request.user.passfrase)
+        algod_token = '4xcfeVtFO21zGa5oJr3us3bpzXACJjQg5oPUdTtv '
+        algod_address = 'https://testnet-algorand.api.purestake.io/ps2'
+        purestake_token = {'X-Api-key': algod_token}
+        algodclient = algod.AlgodClient(algod_token, algod_address, headers=purestake_token)
+        account_info = algodclient.account_info(add)  
+        balance="{} microAlgos".format(account_info.get('amount'))
+        # bal=int(balance)
+        if request.method=="POST":
+            sendadd = request.POST.get('Reciever')
+            amt = int(request.POST.get('amount'))
+            password = request.POST.get('AccPwd')
+            if(password==tes):
+                print(sendadd,amt,passphrase)
+                algod_token = '4xcfeVtFO21zGa5oJr3us3bpzXACJjQg5oPUdTtv '
+                algod_address = 'https://testnet-algorand.api.purestake.io/ps2'
+                purestake_token = {'X-Api-key': algod_token}
+          
+                #waiting for confirmation
+                def wait_for_confirmation(client, txid):
+                    last_round = client.status().get('last-round')
                     txinfo = client.pending_transaction_info(txid)
-                print('Transaction confirmed in round', txinfo.get('confirmed-round'))
-                return txinfo
-    
-            #Sending Algo from one account to another
-            try:
-                mnemonic_phrase = passphrase
-                account_private_key = mnemonic.to_private_key(mnemonic_phrase)
-                account_public_key = mnemonic.to_public_key(mnemonic_phrase)
-                print("My address: {}".format(account_public_key))
-                algodclient = algod.AlgodClient(algod_token, algod_address, headers=purestake_token)
-                params = algodclient.suggested_params()
-                gh = params.gh
-                first_valid_round = params.first
-                last_valid_round = params.last
-                fee = params.min_fee
-                send_amount = amt
-                print(account_public_key)
-                existing_account = account_public_key
+                    while not (txinfo.get('confirmed-round') and txinfo.get('confirmed-round') > 0):
+                        print('Waiting for confirmation')
+                        last_round += 1
+                        client.status_after_block(last_round)
+                        txinfo = client.pending_transaction_info(txid)
+                    print('Transaction confirmed in round', txinfo.get('confirmed-round'))
+                    return txinfo
+        
+                #Sending Algo from one account to another
                 try:
-                    send_to_address = sendadd
-                    tx = transaction.PaymentTxn(existing_account, fee, first_valid_round, last_valid_round, gh, send_to_address, send_amount, flat_fee=True)
-                    signed_tx = tx.sign(account_private_key)
-                    tx_confirm = algodclient.send_transaction(signed_tx)
-                    id=signed_tx.transaction.get_txid()
-                    wait_for_confirmation(algodclient, txid=signed_tx.transaction.get_txid())
-                    account_info = algodclient.account_info(account_public_key)  
-                    print("Final Account balance: {} microAlgos".format(account_info.get('amount')) + "\n")
-    
-                except:
-                    recadd="This receiver does not Belong to Earth "
-                    return render(request,"404.html",{"phrase":recadd})
-            except Exception as phrase:
-                test=phrase
-                return render(request,"404.html",{"phrase":test})
-            return render(request,"success.html",{"id":id}) 
-        else:
-            msg="Incorrect Password!!"
-            return render(request,"404.html",{"phrase":msg})
+                    mnemonic_phrase = passphrase
+                    account_private_key = mnemonic.to_private_key(mnemonic_phrase)
+                    account_public_key = mnemonic.to_public_key(mnemonic_phrase)
+                    print("My address: {}".format(account_public_key))
+                    algodclient = algod.AlgodClient(algod_token, algod_address, headers=purestake_token)
+                    params = algodclient.suggested_params()
+                    gh = params.gh
+                    first_valid_round = params.first
+                    last_valid_round = params.last
+                    fee = params.min_fee
+                    send_amount = amt
+                    print(account_public_key)
+                    existing_account = account_public_key
+                    try:
+                        send_to_address = sendadd
+                        tx = transaction.PaymentTxn(existing_account, fee, first_valid_round, last_valid_round, gh, send_to_address, send_amount, flat_fee=True)
+                        signed_tx = tx.sign(account_private_key)
+                        tx_confirm = algodclient.send_transaction(signed_tx)
+                        id=signed_tx.transaction.get_txid()
+                        wait_for_confirmation(algodclient, txid=signed_tx.transaction.get_txid())
+                        account_info = algodclient.account_info(account_public_key)  
+                        print("Final Account balance: {} microAlgos".format(account_info.get('amount')) + "\n")
+        
+                    except:
+                        recadd="This receiver does not Belong to Earth "
+                        return render(request,"404.html",{"phrase":recadd})
+                except Exception as phrase:
+                    test=phrase
+                    return render(request,"404.html",{"phrase":test})
+                return render(request,"success.html",{"id":id}) 
+            else:
+                msg="Incorrect Password!!"
+                return render(request,"404.html",{"phrase":msg})
+    except:
+        return render(request,"technical_error.html")
     return render(request, "send.html",{'balance':balance})
 
 @login_required(login_url="signin")
