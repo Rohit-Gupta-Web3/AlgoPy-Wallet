@@ -173,7 +173,9 @@ def SendAlgo(request):
         purestake_token = {'X-Api-key': algod_token}
         algodclient = algod.AlgodClient(algod_token, algod_address, headers=purestake_token)
         account_info = algodclient.account_info(add)  
-        balance="{} microAlgos".format(account_info.get('amount'))
+        bal = format(account_info.get('amount'))
+        bala=int(bal)
+        balance=bala/1000000
         # bal=int(balance)
         if request.method=="POST":
             sendadd = request.POST.get('Reciever')
@@ -221,7 +223,6 @@ def SendAlgo(request):
                         wait_for_confirmation(algodclient, txid=signed_tx.transaction.get_txid())
                         account_info = algodclient.account_info(account_public_key)  
                         print("Final Account balance: {} microAlgos".format(account_info.get('amount')) + "\n")
-        
                     except:
                         recadd="This receiver does not Belong to Earth "
                         return render(request,"404.html",{"phrase":recadd})
@@ -272,10 +273,12 @@ def History(request):
     for amt in amt:
         id=amt["id"]
         cnfround=amt["confirmed-round"]
-        amount=amt["payment-transaction"]["amount"]
+        amoun=amt["payment-transaction"]["amount"]
+        amount=int(amoun/1000000)
         sender=amt["sender"]
         receiver=amt["payment-transaction"]["receiver"]
-        fee=amt["fee"]
+        fe=amt["fee"]
+        fee=float(fe/1000000)
         if sender==owner:
             tnxtype="Sent"
         else:
