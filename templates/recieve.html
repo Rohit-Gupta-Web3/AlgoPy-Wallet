@@ -2,17 +2,10 @@
 {% block title %}AlgoPy | Recieve{% endblock title %}
 
 {% block tab %}{% endblock tab %}
-{% block icon %}
-<a href="/dashboard">       
-<i id="icon" class="fas fa-3x fas fas fas fa-arrow-circle-left"></i>
-</a>
-{% endblock icon %}
+
 {% block main %}
 <style>
-  h1{
-    font-size:2rem; 
-    font-weight:400;
-  }
+
   span{
     font-weight:600; 
     font-size:27px;
@@ -30,10 +23,14 @@
 }
 </script>
  
-<h1 style="overflow: hidden; text-overflow: ellipsis;" >
- Account Address: <span id="clip">{{address}}</span></h1>
- 
-<button onclick="copyFun()" class="btn">Copy Address to Clipboard</button>
-  
-{{ svg|safe }}
-{% endblock main %} 
+<div class="h1 text-center" style="overflow: hidden; word-break:break-all;" >
+ Account Address <br> <span id="clip">{{address}}</span>
+</div>
+ <div>
+
+   <button onclick="copyFun()" class="btn">Copy Address to Clipboard</button>
+  </div>
+  <div>
+    {{ svg|safe }}
+  </div>
+    {% endblock main %} 

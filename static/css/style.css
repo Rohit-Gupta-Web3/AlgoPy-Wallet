@@ -2,34 +2,60 @@
   background-color: #f5f5f5;
   padding: 20px;
   margin: 0;
-  width: 100%;
+  width: 70%;
   position: absolute;
   top: 0;
   left: 0;
   z-index: 0;
-  overflow: hidden;
+  overflow: auto;
   top: 50%;
   left: 50%;
+  max-height: 540px;
   transform: translate(-50%, -50%);
   text-align: center;
   border-radius: 20px;
 }
 
-
-.btn{
-    margin: 10px 0;
-    border-radius: 20px;
-    border: 2px solid lightgreen;
-    background-color:transparent;
-    padding-bottom: 5px;
+.btn,
+.btn:hover {
+  margin: 10px 0;
+  border-radius: 10px 20px;
+  border: 2px solid lightgreen;
+  background-color: #24bf86 !important;
+  color: white !important;
+  width: max-content;
+}
+.btn:hover {
+  transform: scale(1.05);
+  transition: all 0.2s ease-in-out;
 }
 
-.footer{
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: black;
-    color: white;
-    text-align: center;
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
 }
+
+.form-control {
+  border-radius: 10px 20px;
+  border: 2px solid lightgreen;
+ text-align: center;
+  color: #24bf86 !important;
+}
+
+
+.pwd-notice{
+  position: absolute;
+  color: red;
+  font-size: 12px;
+  right: 180PX;
+  top: 315px;
+
+
+}
+
+

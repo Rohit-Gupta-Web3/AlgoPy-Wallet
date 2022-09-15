@@ -24,19 +24,13 @@ function clear(){
 }
   {% endblock js %}
 
-{% block icon %}
-<a href="/dashboard">       
-<i id="icon" style="top:1.8em; " class="fas fa-2x fas fas fas fa-arrow-circle-left"></i>
-</a>
-{% endblock icon %}
+{% block style %}
+.main-container{
+  display:none;
+}
+{% endblock style %}
 
-{% block content %}
-<input id="input"  style="position: absolute; top: 3cm;left: 4cm; border: none; border-radius: 20px; text-align: center;" type="text" placeholder="Search a Txn">
 
-  <i onclick="document.getElementById('input').value='', search()" style="cursor:pointer; position: absolute; top: 3.25cm;left: 9.5cm;" class="fa fa-times" aria-hidden="true"></i>
-<button style="letter-spacing:0.3px; position: absolute; top: 3cm;left: 11cm; border: none; border-radius: 20px;" onclick="search()">Go</button>
-</input> 
-{% endblock content %}
 
    
  {% block trow %}

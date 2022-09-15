@@ -1,30 +1,10 @@
 {% extends 'base.html' %}
 {% block title %}AlgoPy | Account Recovery{% endblock title %}
-{% comment %} {% load static %} {% endcomment %}
 {% block navbar %}{% endblock navbar %}
 {% block tab %}{% endblock tab %}
-  {% block icon %}
-  <a href="/">       
-  <i id="icon" class="fas fa-3x fas fas fas fa-arrow-circle-left"></i>
-  </a>
-  {% endblock icon %}
+
 {% block style %}
-input{
-  color:black;
-  text-align: center;
-  border-radius: 30px;
-  border: 2px solid lightgreen;
-    max-width:100px;
-    min-width:6vw;
-    margin:5px;
-  }
-  #main{
-      height:80vh;
-      overflow:scroll;
-      }
-      ::-webkit-scrollbar {
-        display:none;
-    }
+
 {% endblock style %}
 {% block main %}
               
@@ -35,31 +15,31 @@ input{
   {% csrf_token %}
  <div class="row justify-content-center">
    {% for i,x in Words1.items%}
-   <div class="col-sm-2">
+   <div class="col-md-2 col-sm-4">
     <input class="form-control" type="text" name={{i}} placeholder={{x}}></input>
   </div>
     {% endfor %}
    
    {% for i,x in Words2.items%}
-   <div class="col-sm-2">
+   <div class="col-md-2 col-sm-4">
     <input class="form-control" type="text" name={{i}} placeholder={{x}}></input>
   </div>
    {% endfor %} 
    
    {% for i,x in Words3.items%}
-   <div class="col-sm-2">
+   <div class="col-md-2 col-sm-4">
     <input class="form-control" type="text" name={{i}} placeholder={{x}}></input>
   </div>
    {% endfor %} 
    
    {% for i,x in Words4.items%}
-   <div class="col-sm-2">
+   <div class="col-md-2 col-sm-4">
     <input class="form-control" type="text" name={{i}} placeholder={{x}}></input>
   </div>
    {% endfor %} 
    
    {% for i,x in Words5.items%}
-   <div class="col-sm-2">
+   <div class="col-md-2 col-sm-4">
     <input class="form-control" type="text" name={{i}} placeholder={{x}}></input>
   </div>
    {% endfor %}

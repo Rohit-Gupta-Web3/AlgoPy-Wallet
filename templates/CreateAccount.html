@@ -3,44 +3,41 @@
 
 {% block navbar %}{% endblock navbar %}
 {% block tab %}{% endblock tab %}
-{% block icon %}
-<a href="/">       
-<i id="icon" class="fas fa-3x fas fas fas fa-arrow-circle-left"></i>
-</a>
-{% endblock icon %}
-
-{% block style %}
-input{
-  color:black;
-  text-align: center;
-  border-radius: 30px;
-  border: 2px solid lightgreen;
-  margin:10px;
-  }
 
 
 
-  #main{
-    height:80vh;
-    overflow:scroll;
-  }
+{% block main %}
+<div class="h2">
 
-  ::-webkit-scrollbar {
-    display:none;
-}
-{% endblock style %}
-{% block main %}      
-<h2 style="line-height:1;">  
-  Thanks for choosing your further digital currency journey with us. Just add a  name & powerful password for your account, and you are good to go.
-</h2> 
-<form action=""method="post">
+  Thanks for choosing your further digital currency journey with us. Just add a name & powerful password for your
+  account, and you are good to go.
+</div>
+
+<form action="" method="post">
   {% csrf_token %}
-  <input autocomplete="off"  type="text" name="AccName" placeholder="Account Name"></input>
-  <input autocomplete="off"  type="email" name="mail" placeholder="E-mail"></input> 
-  <input autocomplete="off"  type="password" name="AccPwd" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"></input>  
-  <span style="font-size:smaller;"> Password must contain at least one number, one uppercase letter, one lowercase letter, and at least 8 or more characters</span>
+  <div class="row justify-content-center">
+    <div class="col-sm-7 ">
+      <input class="form-control" autocomplete="off" type="text" name="AccName" placeholder="Account Name"></input>
+    </div>
     
-  <button autocomplete="off"  type="submit" class="btn">Create Account</button>  
-  {% comment %} <button  class="btn"><a href="/">Back to Options</a></button>  {% endcomment %}
+    <div class="col-sm-7">
+      <input class="form-control" autocomplete="off" type="email" name="mail" placeholder="E-mail"></input>
+    </div>
+    <div class="col-sm-7">
+      <input  title=
+      "Password must contain at least: 
+       8 characters, 
+       1 uppercase letter, 
+       1 lowercase letter, and
+       1 number." class="form-control pwd" autocomplete="off" type="password" name="AccPwd" placeholder="Password"
+      pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"></input>
+      
+ 
+    </div>
+  </div>
+   
+      
+      <button  type="submit" class="btn">Create Account</button>
+      {% comment %} <button class="btn"><a href="/">Back to Options</a></button> {% endcomment %}
 </form>
 {% endblock main %}

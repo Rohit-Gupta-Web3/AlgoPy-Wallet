@@ -2,49 +2,10 @@
 {% block title %}AlgoPy | Send{% endblock title %}
 
 {% block tab %}{% endblock tab %}
-{% block icon %}
-<a href="/dashboard">       
-<i id="icon" class="fas fa-3x fas fas fas fa-arrow-circle-left"></i>
-</a>
-{% endblock icon %}
-{% block main %}
-<style>
-  h1{
-    font-size:2rem; 
-    font-weight:400;
-  }
-  span{
-    font-weight:600; 
-    font-size:2rem;
-    color:green;
-   
-  }
-  input{
-   color:black;
-   text-align: center;
-   border-radius: 30px;
-   border: 3px solid lightgreen;
-   margin:20px;
-   width:20vw;
-   min-width:6cm;
 
-   }
-   textarea{
-    color:black;
-    border-radius: 20px;
-    border: 2px solid lightgreen;
-    margin:20px;
-    width:20vw;
-    min-width:6cm;
-   }
-   #main{
-     height:80vh;
-     overflow:scroll;
-   }
-   ::-webkit-scrollbar {
-    display:none;
-}
-</style>
+{% block main %}
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>
   $(function(){
@@ -58,16 +19,24 @@
 Provide us the the requierd details and we'll do it for you.
 </h1>
 
-<h1 >
+<div class="h1">
+
   Account Balance: 
   <span>{{balance}} Algo</span> 
-</h1>
+</div>
 <form action=""method="post">
+<div class="row justify-content-center">
   {% csrf_token %}
-<input autocomplete="off"  type="text" name="Reciever" placeholder="Reciever's Account Address"></input> 
-<input autocomplete="off" type="number" pattern = "[0-9]+" name="amount" placeholder="Amount of ALGO(s) to be sent"></input> 
-{% comment %} <input type="textarea rows="5" cols="5"" name="Passphrase" placeholder="Your Passphrase"></input>  {% endcomment %}
-​<input autocomplete="off"  type="password" name="AccPwd" placeholder="Password"> 
+  <div class="col-sm-7">
+    <input class="form-control" autocomplete="off"  type="text" name="Reciever" placeholder="Receiver's Account Address"></input> 
+  </div>
+  <div class="col-sm-7">
+    <input class="form-control" autocomplete="off" type="number" pattern = "[0-9]+" name="amount" placeholder="Amount of ALGO(s) to be sent"></input> 
+  </div>
+<div class="col-sm-7">
+  <input type="password" name="AccPwd" placeholder="Password" class="form-control" type="text">
+</div>
+</div>
 <button class="btn">Send ALGOs</button>
 </form>
 {% endblock main %}

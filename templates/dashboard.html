@@ -7,27 +7,12 @@
  
 {% block main %}
 <style>
-  h1{
-    font-size:2rem; 
-    font-weight:400;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+
   span{
     font-weight:600; 
     font-size:27px;
     color:green;
-    text-decoration:underline;
-  }
-  @media screen and (max-width: 768px) {
-    #icon{
-      position:initial;
-      left:2cm;
-      top:2cm;
-      color:#25c481;
-      z-index:10;
-
-    }
+    word-break: break-all;
   }
 </style>
 <script>
@@ -39,23 +24,34 @@
 }
 </script>
   
-<h1 >
-  Your Account Balance is <span >   {{bal}} ALGO</span> 
-</h1>
-<h1 >
-  Your Account Address is <span id="clip">{{add}}</span></h1>
- 
-<button onclick="copyFun()" class="btn">Copy Address to Clipboard</button>   
-<form action="/sendmail" method="POST">
-  {% csrf_token %}
-  <a href="{% url 'sendmail' %}">
-<button type="submit" class="btn">Send Account details to my mail</button>
+<div class="h1">
+  Your Account Balance is <br> <span >{{bal}} ALGO</span> 
+</div>
+
+<div class="h1">
+
+  Your Account Address is <br> <span id="clip">{{add}}</span>
+</div>
+
+  <form action="/sendmail" method="POST">
+    <div class="row justify-content-center">
+<div class="col-sm-7">
+  <a class="btn" target="_blank" href="https://dispenser.testnet.aws.algodev.network/" > 
+    Add Funds
   </a>
-</form>
-{% block icon %}
-<a target="_blank" href="https://dispenser.testnet.aws.algodev.network/" style="position:absolute;"> 
-  <i style="top:3cm;left:0cm;" id="icon" class="fas fa-2x fas fas fas fa-fas fa-coins">ADD FUNDS</i>
-  {% comment %} <i style="top:3cm;color:white;left:1.2cm;" id="icon" class="fas fas fas fas fa-far fa-fas fa-plus"></i>   {% endcomment %}
+</div>
+<div class="col-sm-7">
+<a class="btn" onclick="copyFun()" class="btn">Copy Address to Clipboard</a>
+</div>
+{% csrf_token %}
+<div class="col-sm-7">
+<a href="{% url 'sendmail' %}">
+  <button type="submit" class="btn">Send Account details to my mail</button>
 </a>
-{% endblock icon %}
+</div>
+</div>
+
+  </form>
+
+
 {% endblock main %}
