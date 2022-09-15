@@ -4,7 +4,7 @@
 {% block tab %}{% endblock tab %}
 
 
-<br>
+ 
 {% block main %}
 <style>
   h1{
@@ -38,14 +38,14 @@
 
 }
 </script>
-<br><br>
+  
 <h1 >
-  Your Account Balance is <span > <br> {{bal}} ALGO</span> 
+  Your Account Balance is <span >   {{bal}} ALGO</span> 
 </h1>
 <h1 >
   Your Account Address is <span id="clip">{{add}}</span></h1>
-<br>
-<button onclick="copyFun()" class="btn">Copy Address to Clipboard</button> <br><br>
+ 
+<button onclick="copyFun()" class="btn">Copy Address to Clipboard</button>   
 <form action="/sendmail" method="POST">
   {% csrf_token %}
   <a href="{% url 'sendmail' %}">

@@ -3,20 +3,37 @@
 
 {% block navbar %}{% endblock navbar %}
 {% block tab %}{% endblock tab %}
+{% block style %}
+.main-container{
+	width: 50%;
+  }
+{% endblock style %}
+
 
 {% block main %}
-<br><br>
-<h1 style="color:black;">
-    Welcome to <span style="font-size:larger; font-weight:400;">Algopy <span style="font-size:small; text-transform:none;">Testnet</span></span> <br> Please choose what suits you best.
-</h1>
-    <a href="/AddAccount">
-        <button class="btn">Recover your account with Passphrase</button>
-	</a><br>OR<br>
-	<a href="/CreateAccount">
-        <button class="btn">Create an account and get a new Passphrase</button>
-	</a><br>OR<br>
-	<a href="/signin">        
-	<button class="btn">Login to your account using password</button>
-	</a>	
-	Testing Content
+<div class="h2">
+	Welcome to <span style="font-size:larger; font-weight:400;">Algopy <span style="font-size:small; text-transform:none;">Testnet</span></span>
+</div>
+<div class="h2" style="color:black;">
+     Please choose what suits you best.
+</div>
+<div>
+
+	<a class="btn" href="/AddAccount">
+		Recover your account with Passphrase
+	</a> 
+</div>
+OR
+<div>
+
+	<a class="btn" href="/CreateAccount">
+		Create an account and get a new Passphrase
+	</a>
+</div>
+OR
+<div>
+	<a class="btn" href="/signin">        
+		Login to your account using password
+	</a>
+</div>
 {% endblock main %}

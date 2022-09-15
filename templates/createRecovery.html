@@ -13,15 +13,15 @@ input{
   margin:20px;
   }
 {% endblock style %}
-{% block main %}<br><br>
+{% block main %}  
 
 <h2 style="line-height:1.2;">
-Your has been successfully recovered now you have to give us just 3 more things to get done  </h2> <br>
+Your has been successfully recovered now you have to give us just 3 more things to get done  </h2>  
   <form action="" method="post">
     {% csrf_token %}
       <input autocomplete="off" type="text" name="AccName" placeholder="Account Name"></input>
-      <input autocomplete="off"  type="email" name="mail" placeholder="E-mail"></input><br>
-      <input type="password" name="AccPwd" placeholder="Password"></input><br>
+      <input autocomplete="off"  type="email" name="mail" placeholder="E-mail"></input> 
+      <input type="password" name="AccPwd" placeholder="Password"></input> 
       <button type="submit" class="btn">Create Account</button>
     </form>
 {% endblock main %}

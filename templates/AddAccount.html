@@ -27,33 +27,44 @@ input{
     }
 {% endblock style %}
 {% block main %}
-<br> <br> <br> <br> <br> <br> <br> 
+              
 <h3 style="line-height:1; letter-spacing:1px;">
-    Here you have to enter your full length passphrase of your ALGORAND account.<br> Please make sure you don't enter any spaces with the words.
-  </h3> <br>
+    Here you have to enter your full length passphrase of your ALGORAND account.  Please make sure you don't enter any spaces with the words.
+  </h3>  
 <form action="" method="post">
   {% csrf_token %}
-  {% comment %} autocomplete="off" {% endcomment %}
-  {% for i,x in Words1.items%}
-  <input type="text" name={{i}} placeholder={{x}}></input>
-  {% endfor %}
-  <br>
-  {% for i,x in Words2.items%}
-  <input type="text" name={{i}} placeholder={{x}}></input>
-  {% endfor %} 
-  <br>
-  {% for i,x in Words3.items%}
-  <input type="text" name={{i}} placeholder={{x}}></input>
-  {% endfor %} 
-  <br>
-  {% for i,x in Words4.items%}
-  <input type="text" name={{i}} placeholder={{x}}></input>
-  {% endfor %} 
-  <br>
-  {% for i,x in Words5.items%}
-  <input type="text" name={{i}} placeholder={{x}}></input>
-  {% endfor %}
-  <br>  <br>  
+ <div class="row justify-content-center">
+   {% for i,x in Words1.items%}
+   <div class="col-sm-2">
+    <input class="form-control" type="text" name={{i}} placeholder={{x}}></input>
+  </div>
+    {% endfor %}
+   
+   {% for i,x in Words2.items%}
+   <div class="col-sm-2">
+    <input class="form-control" type="text" name={{i}} placeholder={{x}}></input>
+  </div>
+   {% endfor %} 
+   
+   {% for i,x in Words3.items%}
+   <div class="col-sm-2">
+    <input class="form-control" type="text" name={{i}} placeholder={{x}}></input>
+  </div>
+   {% endfor %} 
+   
+   {% for i,x in Words4.items%}
+   <div class="col-sm-2">
+    <input class="form-control" type="text" name={{i}} placeholder={{x}}></input>
+  </div>
+   {% endfor %} 
+   
+   {% for i,x in Words5.items%}
+   <div class="col-sm-2">
+    <input class="form-control" type="text" name={{i}} placeholder={{x}}></input>
+  </div>
+   {% endfor %}
+  </div>
+   
   <a href="{% url 'createRecovery' %}">
     <button type="submit" class="btn">Verify Passphrase</button>
   </a>

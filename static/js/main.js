@@ -289,3 +289,16 @@ jQuery(document).ready(function($){
 //         }
 //     })
 // });
+
+// DOM content loaded js function
+
+document.addEventListener("DOMContentLoaded", function() {
+console.log("DOM content loaded", Date.now());
+document.querySelectorAll('input').forEach(function(input) {
+	input.classList.add('form-control');
+});
+});
+
+window.onload = function() {
+console.log("window loaded", Date.now());
+};
