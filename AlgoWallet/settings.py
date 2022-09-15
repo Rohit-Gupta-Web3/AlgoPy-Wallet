@@ -40,13 +40,14 @@ ALLOWED_HOSTS = ['*']
 #Sending mail
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'AlgoPy.wallet@gmail.com'
-EMAIL_HOST_PASSWORD = 'MCNSolutions'
+EMAIL_HOST_PASSWORD = 'gjmztmhiieolzgfj'
 EMAIL_PORT = '587'
 EMAIL_USE_TLS = True
 
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -104,12 +105,8 @@ WSGI_APPLICATION = 'AlgoWallet.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd80s7dnjsmkip5',
-        'USER':'okawqmyvulrped',
-        'PASSWORD':'2dba07dbf1e408f32e71b06816dfedb3cdacfda3a44a17476e2c158e269bc484',
-        'HOST':'ec2-52-21-136-176.compute-1.amazonaws.com',
-        'PORT':'5432'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -183,3 +180,36 @@ STATIC_URL = 'static/'
 # Activate Django-Heroku.
 django_heroku.settings(locals())
 
+
+JAZZMIN_SETTINGS = {
+    "site_title": "AlgoPy Wallet",
+    "site_header": "AlgoPy Wallet",
+    "site_brand": "AlgoPy Wallet",
+    "site_icon": "favicon.png",
+    "site_logo": "favicon.png",
+    "welcome_sign": "Welcome to the Algopy",
+    "copyright": "Algopy",
+    "user_avatar": None,
+    "topmenu_links": [
+        {"name": "MPayz", "url": "home", "permissions": ["auth.view_user"]},
+        {"model": "auth.User"},
+    ],
+    "show_sidebar": True,
+    "navigation_expanded": True,
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "users.User": "fas fa-user",
+        "auth.Group": "fas fa-users",
+        "admin.LogEntry": "fas fa-file",
+    },
+    "default_icon_parents": "fas fa-chevron-circle-right",
+    "default_icon_children": "fas fa-arrow-circle-right",
+    "related_modal_active": False,
+    "show_ui_builder": True,
+    "changeform_format": "horizontal_tabs",
+    "changeform_format_overrides": {
+        "auth.user": "collapsible",
+        "auth.group": "vertical_tabs",
+    },
+}
