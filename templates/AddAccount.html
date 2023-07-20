@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %}AlgoPy | Account Recovery{% endblock title %}
+{% block navbar %}{% endblock navbar %}
+{% block tab %}{% endblock tab %}
+
+{% block style %}
+
+{% endblock style %}
+{% block main %}
+              
+<h3 style="line-height:1; letter-spacing:1px;">
+    Here you have to enter your full length passphrase of your ALGORAND account.  Please make sure you don't enter any spaces with the words.
+  </h3>  
+<form action="" method="post">
+  {% csrf_token %}
+ <div class="row justify-content-center">
+   {% for i,x in Words1.items%}
+   <div class="col-md-2 col-sm-4">
+    <input class="form-control" type="text" name={{i}} placeholder={{x}}></input>
+  </div>
+    {% endfor %}
+   
+   {% for i,x in Words2.items%}
+   <div class="col-md-2 col-sm-4">
+    <input class="form-control" type="text" name={{i}} placeholder={{x}}></input>
+  </div>
+   {% endfor %} 
+   
+   {% for i,x in Words3.items%}
+   <div class="col-md-2 col-sm-4">
+    <input class="form-control" type="text" name={{i}} placeholder={{x}}></input>
+  </div>
+   {% endfor %} 
+   
+   {% for i,x in Words4.items%}
+   <div class="col-md-2 col-sm-4">
+    <input class="form-control" type="text" name={{i}} placeholder={{x}}></input>
+  </div>
+   {% endfor %} 
+   
+   {% for i,x in Words5.items%}
+   <div class="col-md-2 col-sm-4">
+    <input class="form-control" type="text" name={{i}} placeholder={{x}}></input>
+  </div>
+   {% endfor %}
+  </div>
+   
+  <a href="{% url 'createRecovery' %}">
+    <button type="submit" class="btn">Verify Passphrase</button>
+  </a>
+</form>
+  {% endblock main %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}AlgoPy | Account Login{% endblock title %}
+
+{% block navbar %}{% endblock navbar %}
+{% block tab %}{% endblock tab %}
+
+
+{% block main %} 
+<div class="h2">
+
+  We're glad that you're already a memeber of AlgoPy   Please provide us your login credentials below.
+</div>
+  
+  <form action="" method="post">
+    {% csrf_token %}
+    <div class="justify-content-center row">
+
+      <div class="col-sm-7">
+        <input autocomplete="off"  type="text" name="AccName" placeholder="Account Name"></input> 
+      </div>
+
+      <div class="col-sm-7">
+        <input autocomplete="off"  type="password" name="AccPwd" placeholder="Password"></input> 
+      </div>
+     
+    </div>
+
+        <button type="submit" class="btn">Gain Access</button>
+  
+    </form>
+{% endblock main %}

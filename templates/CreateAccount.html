@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}AlgoPy | Account Creation{% endblock title %}
+
+{% block navbar %}{% endblock navbar %}
+{% block tab %}{% endblock tab %}
+
+
+
+{% block main %}
+<div class="h2">
+
+  Thanks for choosing your further digital currency journey with us. Just add a name & powerful password for your
+  account, and you are good to go.
+</div>
+
+<form action="" method="post">
+  {% csrf_token %}
+  <div class="row justify-content-center">
+    <div class="col-sm-7 ">
+      <input class="form-control" autocomplete="off" type="text" name="AccName" placeholder="Account Name"></input>
+    </div>
+    
+    <div class="col-sm-7">
+      <input class="form-control" autocomplete="off" type="email" name="mail" placeholder="E-mail"></input>
+    </div>
+    <div class="col-sm-7">
+      <input  title=
+      "Password must contain at least: 
+       8 characters, 
+       1 uppercase letter, 
+       1 lowercase letter, and
+       1 number." class="form-control pwd" autocomplete="off" type="password" name="AccPwd" placeholder="Password"
+      pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"></input>
+      
+ 
+    </div>
+  </div>
+   
+      
+      <button  type="submit" class="btn">Create Account</button>
+      {% comment %} <button class="btn"><a href="/">Back to Options</a></button> {% endcomment %}
+</form>
+{% endblock main %}
